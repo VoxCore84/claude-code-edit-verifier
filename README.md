@@ -1,5 +1,7 @@
 # Smart Edit Verifier for Claude Code
 
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue) ![License: MIT](https://img.shields.io/github/license/VoxCore84/claude-code-edit-verifier) ![GitHub release](https://img.shields.io/github/v/release/VoxCore84/claude-code-edit-verifier)
+
 **Catches Failed Edits Before They Compound**
 
 A PostToolUse hook that reads the file back after every `Edit` operation to verify the edit actually applied. Prevents the silent-failure cascade where Claude builds on top of an edit that never landed.
