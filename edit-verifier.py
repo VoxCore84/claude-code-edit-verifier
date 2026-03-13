@@ -1,4 +1,4 @@
-"""Smart Edit Verifier — PostToolUse hook for Claude Code.
+"""Smart Edit Verifier -- PostToolUse hook for Claude Code.
 
 Reads the file back after every Edit operation to verify the edit actually
 applied. Catches silent failures before they compound into broken state.
@@ -13,7 +13,7 @@ Based on mvanhorn's PR #32755 (anthropics/claude-code) with three improvements:
 Setup: Add to .claude/settings.json as a PostToolUse hook matching "Edit".
 See README.md for full installation instructions.
 
-License: MIT — Copyright (c) 2026 VoxCore84
+License: MIT -- Copyright (c) 2026 VoxCore84
 """
 import json
 import os
@@ -90,7 +90,7 @@ def main():
     #
     # The key improvement over PR #32755: we only flag old_string's presence
     # when new_string is ALSO missing. This handles the common case where
-    # old_string legitimately appears in multiple locations — if the edit
+    # old_string legitimately appears in multiple locations -- if the edit
     # succeeded on the target occurrence, new_string will be present and
     # we skip the alarm.
     if old_string and old_string in content:
@@ -102,7 +102,7 @@ def main():
             )
         elif old_string != new_string and new_string and new_string not in content:
             # Single replacement: old_string is still there AND new_string is missing
-            # — this strongly suggests the edit did not apply
+            # -- this strongly suggests the edit did not apply
             occurrences = content.count(old_string)
             problems.append(
                 f"POSSIBLE EDIT FAILURE: old_string still appears {occurrences} time(s) "

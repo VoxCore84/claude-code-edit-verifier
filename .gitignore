@@ -23,3 +23,7 @@ env/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Secrets / local config
+.env
+settings.json
