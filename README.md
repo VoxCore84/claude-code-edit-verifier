@@ -1,6 +1,6 @@
 # Smart Edit Verifier for Claude Code
 
-![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue) ![License: MIT](https://img.shields.io/github/license/VoxCore84/claude-code-edit-verifier) ![GitHub release](https://img.shields.io/github/v/release/VoxCore84/claude-code-edit-verifier)
+![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue) ![License: MIT](https://img.shields.io/github/license/VoxCore84/claude-code-edit-verifier) ![GitHub release](https://img.shields.io/github/v/release/VoxCore84/claude-code-edit-verifier)
 
 **Catches Failed Edits Before They Compound**
 
@@ -35,7 +35,7 @@ This hook improves on [mvanhorn's PR #32755](https://github.com/anthropics/claud
 **Our fix**: We only flag `old_string`'s continued presence when `new_string` is *also* missing. If the edit succeeded, `new_string` will be in the file, and we skip the alarm -- even if `old_string` appears elsewhere. This eliminates the most common source of false positives while still catching actual failures.
 
 | Scenario | PR #32755 | This hook |
-|----------|-----------|-----------|
+|----------|-----------|----------|
 | Edit succeeded, old_string appears elsewhere | FALSE ALARM | No alert |
 | Edit failed, old_string still there, new_string missing | Alert | Alert |
 | Edit failed, new_string missing entirely | Alert | Alert |
